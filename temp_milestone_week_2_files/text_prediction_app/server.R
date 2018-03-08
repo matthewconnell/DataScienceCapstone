@@ -75,8 +75,9 @@ shinyServer(function(input, output) {
       
     }
   }
-  
-  output$default <- renderText({predictor(input$text)})
-  output$placeholder <- renderText({input$text})
+  output$prediction <- renderText({predictor(input$text)})
+  output$time <- renderText({c("Your search took", 
+                                {round(as.numeric(system.time(result <- predictor(input$text)))[1],3)}, 
+                                "seconds.")})
   }
 )

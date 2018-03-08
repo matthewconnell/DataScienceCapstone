@@ -14,9 +14,11 @@ shinyUI(fluidPage(
     mainPanel(
       
       textInput("text", 
-                "Enter your text here"),
-      verbatimTextOutput("default"),
-      verbatimTextOutput("placeholder", placeholder = TRUE)
+                label = "Enter your text here",
+                placeholder = "Enter you text here"),
+      verbatimTextOutput("prediction", placeholder = TRUE),
+      verbatimTextOutput("time", placeholder = TRUE)
+      
     )
   )
 ))
