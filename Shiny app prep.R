@@ -47,20 +47,20 @@ predictor <- function(string) {
         
         if (len_string >= 3) {
                   new_string = paste(splitted_string[(len_string-2):len_string], collapse = " ")
-                  finder_four <- grepl(new_string, fourgrams_splitted$first_words)
+                  finder_four <- grepl(new_string, fourgrams_splitted$first_words, ignore.case = TRUE)
                   getter_four<- fourgrams_splitted$last_word[finder_four]
                   return(paste(new_string, getter_four[1:3]))
         
         
         } else if (len_string == 2) {
                   new_string = paste(splitted_string[(len_string-1):len_string], collapse = " ")
-                  finder_three <- grepl(new_string, trigrams_splitted$first_words)
+                  finder_three <- grepl(new_string, trigrams_splitted$first_words, ignore.case = TRUE)
                   getter_three<- trigrams_splitted$last_word[finder_three]
                   return(paste(new_string, getter_three[1:4]))
             
         } else if (len_string == 1) {
                   new_string = string
-                  finder_two <- grepl(new_string, bigrams_splitted$first_words)
+                  finder_two <- grepl(new_string, bigrams_splitted$first_words, ignore.case = TRUE)
                   getter_two<- bigrams_splitted$last_word[finder_two]
                   return(paste(new_string, getter_two[1:4]))
 
@@ -70,7 +70,10 @@ predictor <- function(string) {
 }
 
 
-
+start <- Sys.time()
+predictor("the")
+end <- Sys.time()
+paste(round(as.numeric(end - start),3), "seconds")
 
 
 
