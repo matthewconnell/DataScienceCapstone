@@ -63,9 +63,16 @@ fourgram_finder <- function(splitted_string) {
           return(getter_four[1:4])
 }
 
+unigram_finder <- function(number) {
+        random_words <- c()
+        for (i in 1:number) {
+                word <- unigrams$unique.values[sample(1:30, 1)]
+                random_words <- c(random_words, word)
+        }
+        return(random_words)
+}
 
-
-
+rnorm(1,49975)
 
 predictor <- function(string) {
   
@@ -119,16 +126,16 @@ predictor <- function(string) {
                if (sum(is.na(results)) == 0) {
                        return(results)
                } else if (sum(is.na(results)) == 1) {
-                       results2 <- bigram_finder(splitted_string[2])
+                       results2 <- unigram_finder(1)
                        return(c(results[1:3], results2[1]))
                } else if (sum(is.na(results)) == 2) {
-                       results3 <- bigram_finder(splitted_string[2])
+                       results3 <- unigram_finder(2)
                        return(c(results[1:2], results3[1:2]))
                } else if (sum(is.na(results)) == 3) {
-                       results4 <- bigram_finder(splitted_string[2])
+                       results4 <- unigram_finder(3)
                        return(c(results[1], results4[1:3]))
                } else if (sum(is.na(results)) == 4) {
-                       results5 <- bigram_finder(splitted_string[2])
+                       results5 <- unigram_finder(4)
                        return(results5[1:4])
                } 
         
