@@ -72,7 +72,6 @@ unigram_finder <- function(number) {
         return(random_words)
 }
 
-rnorm(1,49975)
 
 predictor <- function(string) {
   
@@ -145,12 +144,23 @@ predictor <- function(string) {
 }
 
 
+replace_i <- function(column) {
+        column <- gsub("^i$", "I", column)
+        column <- gsub("^i'm$", "I'm", column)
+        return(column)
+}
 
-start <- Sys.time()
-predictor("the")
-end <- Sys.time()
-paste(round(as.numeric(end - start),3), "seconds")
 
+
+unigrams$unique.values <- replace_i(unigrams$unique.values)
+bigrams_splitted$last_word <- replace_i(bigrams_splitted$last_word)
+trigrams_splitted$last_word <- replace_i(trigrams_splitted$last_word)
+fourgrams_splitted$last_word <- replace_i(fourgrams_splitted$last_word)
+
+write.table(unigrams, "unigrams.txt")
+write.table(bigrams_splitted, "bigrams_splitted.txt")
+write.table(trigrams_splitted, "trigrams_splitted.txt")
+write.table(fourgrams_splitted, "fourgrams_splitted.txt")
 
 
 ## Find data
