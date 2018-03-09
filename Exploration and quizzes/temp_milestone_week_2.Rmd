@@ -1,0 +1,112 @@
+```{r eval = TRUE, echo=FALSE, warning=FALSE, cache = TRUE, message = FALSE}
+
+setwd("C:/Users/matth_000/Desktop/Coursera/Month 10 - Capstone Project/final/")
+
+
+library(readtext) 
+library(tm)         # for text mining
+library(SnowballC)  # for stemming
+library(wordcloud)  # for wordclouds
+library(RColorBrewer) # for more color options
+
+
+data_twitter <- readLines("en_US/en_US.twitter.txt")
+df_twitter <- data.frame(data_twitter)
+
+data_news <- readLines("en_US/en_US.news.txt")
+df_news <- data.frame(data_news)
+
+data_blogs <- readLines("en_US/en_US.blogs.txt")
+df_blogs <- data.frame(data_blogs)
+```
+
+# Milestone Report for Week 2 of the Capstone Project
+### By Matthew Connell
+
+## Introduction and Motivation
+
+This report is an introduction to the capstone porject. It will discuss some of the exploratory analysis I have done, some of the processing steps I have taken, future processing steps needed, and some exploratory graphs and tables.
+
+I hope this provides you with a good overview of the first steps of the project without being too technical.
+
+## Exploratory Analysis
+
+After the data was downloaded, extracted, and read in, I began the exploratory analysis of the English data sets.
+
+First, I checked to see how many rows each of the files had. 
+
+Twitter:
+```{r}
+nrow(df_twitter)
+
+```
+Blogs:
+```{r}
+nrow(df_blogs)
+
+```
+News:
+```{r}
+nrow(df_news)
+```
+
+So the Twitter corpus has by far the most rows, which is understandable. Let's see which one has the most words:
+
+
+
+Twitter: 
+
+```{r}
+sum(grepl(" ", data_twitter))
+```
+Blogs:
+```{r}
+sum(grepl(" ", data_blogs))
+```
+News:
+```{r}
+sum(grepl(" ", data_news))
+```
+
+And I also wanted to see how long the longest string in all of the datasets was:
+
+```{r eval = TRUE}
+
+longest <- which.max(nchar(data_blogs))
+nchar(data_blogs[longest])
+```
+
+Also, here is the making of a dataframe of all the words and their frequencies, followed by a table showing the top 20 words, and then a bar plot showing the top ten words. This processing was in preparation for a word cloud. The steps taken were borrowed from http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know 
+
+```{r, warning=FALSE}
+library(tm)
+twit_temp <- Corpus(VectorSource(data_twitter))
+set.seed(514)
+tt <- sample(twit_temp, 1000)
+
+dtm <- TermDocumentMatrix(tt)
+m <- as.matrix(dtm)
+v <- sort(rowSums(m), decreasing = TRUE)
+d <- data.frame(word = names(v), freq = v)
+head(d, 20)
+```
+
+```{r}
+barplot(d[1:10,]$freq, las = 2, names.arg = d[1:10,]$word,
+        col ="green", main ="Most frequent words",
+        ylab = "Word frequencies") 
+```
+
+
+
+
+## Next steps
+
+Some more processing is necessary before the next step. First, we'll need to take out 'stop words' like 'the', 'and', 'you', etc. These would make our job in making a prediction algorithm too difficult. We'll also need to get rid of curse words. 
+
+In order to build the algorithm, we'll also need to create n-grams (specifically 1- 2- and 3-grams) in order to make reasonable predictions about what word the person will choose next. 
+
+The eventual Shiny app will likely consist of a text box where the user can enter one, two, or three words and, after pressing 'OK', will get a short list of words (5 or 10) which would best suit the n-gram they entered.
+
+The algorithm behind the Shiny app will be trained on a subset of the data available. Unfortunately, there is too much data to be able to use it all and still have a fast-performing algorithm. 
+
