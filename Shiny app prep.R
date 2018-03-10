@@ -75,17 +75,13 @@ unigram_finder <- function(number) {
 
 
 predictor <- function(string) {
-  
     splitted_string <- unlist(strsplit(string, split = " "))
     len_string = length(splitted_string)  
-  
         if (len_string >= 3) {
                 splitted_string <- splitted_string[(len_string - 2):len_string]
                 results <- fourgram_finder(splitted_string)
-                
                 if (sum(is.na(results[1:4])) == 0) {
                         return(results[1:4])
-                        
                 } else if (sum(is.na(results[1:4])) == 1) {
                         results2 <- trigram_finder(splitted_string[2:3])
                         if (sum(is.na(results2[1])) == 0) {
@@ -113,8 +109,6 @@ predictor <- function(string) {
                                 }
                         }
                 }
-                
-                        
                 else if (sum(is.na(results[1:4])) == 3) {
                         results4 <- trigram_finder(splitted_string[2:3])
                         if (sum(is.na(results4[1:3])) == 0) {
@@ -129,12 +123,10 @@ predictor <- function(string) {
                                 }
                         } 
                 }
-                
                 else if (sum(is.na(results[1:4])) == 4) {
                         results5 <- trigram_finder(splitted_string[2:3])
                         if (sum(is.na(results5[1:4])) == 0) {
                                 return(results5[1:4])
-                                
                         } else if (sum(is.na(results5[1:4])) == 1) {
                                 results5_sub <- bigram_finder(splitted_string[3])
                                 if (sum(is.na(results5_sub)) == 0) {
@@ -169,31 +161,40 @@ predictor <- function(string) {
                                 }
                         }
                 }
-        
-        
-       
-        
       } else if (len_string == 2) {
                 results <- trigram_finder(splitted_string)
-                if (sum(is.na(results)) == 0) {
-                        return(results)
-                } else if (sum(is.na(results)) == 1) {
+                if (sum(is.na(results[1:4])) == 0) {
+                        return(results[1:4])
+                } else if (sum(is.na(results[1:4])) == 1) {
                         results2 <- bigram_finder(splitted_string[2])
                         return(c(results[1:3], results2[1]))
-                } else if (sum(is.na(results)) == 2) {
+                } else if (sum(is.na(results[1:4])) == 2) {
                         results3 <- bigram_finder(splitted_string[2])
                         return(c(results[1:2], results3[1:2]))
-                } else if (sum(is.na(results)) == 3) {
+                } else if (sum(is.na(results[1:4])) == 3) {
                         results4 <- bigram_finder(splitted_string[2])
                         return(c(results[1], results4[1:3]))
-                } else if (sum(is.na(results)) == 4) {
+                } else if (sum(is.na(results[1:4])) == 4) {
                         results5 <- bigram_finder(splitted_string[2])
-                        return(results5[1:4])
+                        if (sum(is.na(results5[1:4])) == 0) {
+                                return(results5[1:4])
+                        } else if (sum(is.na(results5[1:4])) == 1) {
+                                results5_sub <- unigram_finder(1)
+                                return(c(results5[1:3], results5_sub[1]))
+                        } else if (sum(is.na(results5[1:4])) == 2) {
+                                results6_sub <- unigram_finder(2)
+                                return(c(results5[1:2], results5_sub[2]))
+                        } else if (sum(is.na(results5[1:4])) == 3) {
+                                results7_sub <- unigram_finder(3)
+                                return(c(results5[1], results5_sub[1:3]))
+                        } else if (sum(is.na(results5[1:4])) == 4) {
+                                results8_sub <- unigram_finder(4)
+                                return(results8_sub[1:4])
+                        } 
                 }
         
         
-        
-      } else if (len_string == 1) {
+        } else if (len_string == 1) {
                results <- bigram_finder(splitted_string)
                if (sum(is.na(results)) == 0) {
                        return(results)
@@ -210,14 +211,12 @@ predictor <- function(string) {
                        results5 <- unigram_finder(4)
                        return(results5[1:4])
                } 
-        
-        
       }
-
 }
 
 
-
+predictor("alsdkfl alskdfla")
+predictor("it is")
 
 ## Find data
 ## Possibly faster???
