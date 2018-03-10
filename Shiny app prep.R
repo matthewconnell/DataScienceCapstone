@@ -2,7 +2,7 @@ setwd("C:/Users/matth_000/Desktop/Coursera/Month10-CapstoneProject/final/en_US/F
 
 
 library(data.table)
-library(sqldf)
+
 
 
 ## Load and 'characterize' the tables
@@ -138,7 +138,7 @@ predictor <- function(string) {
                         } else if (sum(is.na(results5[1:4])) == 2) {
                                 results6_sub <- bigram_finder(splitted_string[3])
                                 if (sum(is.na(results6_sub)) == 0) {
-                                        return(c(results5[1:2], results5_sub[1:2]))
+                                        return(c(results5[1:2], results6_sub[1:2]))
                                 } else {
                                         results6_sub_sub <- unigram_finder(2)
                                         return(c(results5[1:2], results6_sub_sub[1:4]))
@@ -217,6 +217,7 @@ predictor <- function(string) {
 
 predictor("alsdkfl alskdfla")
 predictor("it is")
+predictor("some interesting things")
 
 ## Find data
 ## Possibly faster???
@@ -225,3 +226,10 @@ predictor("it is")
 #    `dim<-`(grepl("about his horticultural", 
 #                  as.matrix(df), 
 #                  fixed=TRUE), dim(df))) > 0)
+
+
+
+
+
+## Source for updating text input fields https://shiny.rstudio.com/reference/shiny/latest/textAreaInput.html
+## Source for dynamic buttons https://sites.temple.edu/psmgis/2017/07/26/r-shiny-task-create-an-input-select-box-that-is-dependent-on-a-previous-input-choice/
