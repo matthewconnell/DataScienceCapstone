@@ -43,7 +43,7 @@ fourgrams_splitted$last_word <- as.character(fourgrams_splitted$last_word)
 
 bigram_finder <- function(splitted_string) {
           new_string = splitted_string
-          finder_two <- grepl(paste0(" ", new_string), bigrams_splitted$first_words, ignore.case = TRUE)
+          finder_two <- grepl(paste0("\\<", new_string, "\\>"), bigrams_splitted$first_words, ignore.case = TRUE)
           getter_two<- bigrams_splitted$last_word[finder_two]
           return(getter_two[1:4])
 }
@@ -51,14 +51,14 @@ bigram_finder <- function(splitted_string) {
 
 trigram_finder <- function(splitted_string) {
           new_string = paste(splitted_string[1:2], collapse = " ")
-          finder_three <- grepl(paste0(" ", new_string), trigrams_splitted$first_words, ignore.case = TRUE)
+          finder_three <- grepl(paste0("\\<", new_string, "\\>"), trigrams_splitted$first_words, ignore.case = TRUE)
           getter_three<- trigrams_splitted$last_word[finder_three]
           return(getter_three[1:4])
 }
 
 fourgram_finder <- function(splitted_string) {
           new_string = paste(splitted_string[1:3], collapse = " ")
-          finder_four <- grepl(paste0(" ", new_string), fourgrams_splitted$first_words, ignore.case = TRUE)
+          finder_four <- grepl(paste0("\\<", new_string, "\\>"), fourgrams_splitted$first_words, ignore.case = TRUE)
           getter_four<- fourgrams_splitted$last_word[finder_four]
           return(getter_four[1:4])
 }
@@ -66,10 +66,9 @@ fourgram_finder <- function(splitted_string) {
 unigram_finder <- function(number) {
         random_words <- c()
         for (i in 1:number) {
-                word <- unigrams$unique.values[sample(1:30, 1)]
-                random_words <- c(random_words, word)
+                words <- unigrams$unique.values[1:i]
         }
-        return(random_words)
+        return(words)
 }
 
 
@@ -218,6 +217,7 @@ predictor <- function(string) {
 predictor("alsdkfl alskdfla")
 predictor("it is")
 predictor("some interesting things")
+predictor(' I ')
 
 ## Find data
 ## Possibly faster???
@@ -227,9 +227,27 @@ predictor("some interesting things")
 #                  as.matrix(df), 
 #                  fixed=TRUE), dim(df))) > 0)
 
-
+output$prediction1 <- renderText({predictor(input$text)}[1])
+output$prediction2 <- renderText({predictor(input$text)}[2])
+output$prediction3 <- renderText({predictor(input$text)}[3])
+output$prediction4 <- renderText({predictor(input$text)}[4])
 
 
 
 ## Source for updating text input fields https://shiny.rstudio.com/reference/shiny/latest/textAreaInput.html
 ## Source for dynamic buttons https://sites.temple.edu/psmgis/2017/07/26/r-shiny-task-create-an-input-select-box-that-is-dependent-on-a-previous-input-choice/
+## SOurces for reactive variables https://stackoverflow.com/questions/17002160/shiny-tutorial-error-in-r/17649022
+##                              https://stackoverflow.com/questions/40623749/what-is-object-of-type-closure-is-not-subsettable-error-in-shiny/40623750
+## Source for grep expression "\\<" and making n-gram table https://www.youtube.com/watch?v=0le0ijNVP5M
+## Grep reference guide https://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php
+## 
+## 
+## 
+## 
+## 
+
+
+
+
+
+##

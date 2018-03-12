@@ -41,7 +41,7 @@ shinyServer(function(input, output, session) {
         
         bigram_finder <- function(splitted_string) {
                 new_string = splitted_string
-                finder_two <- grepl(paste0(" ", new_string), bigrams_splitted$first_words, ignore.case = TRUE)
+                finder_two <- grepl(paste0("\\<", new_string, "\\>"), bigrams_splitted$first_words, ignore.case = TRUE)
                 getter_two<- bigrams_splitted$last_word[finder_two]
                 return(getter_two[1:4])
         }
@@ -49,14 +49,14 @@ shinyServer(function(input, output, session) {
         
         trigram_finder <- function(splitted_string) {
                 new_string = paste(splitted_string[1:2], collapse = " ")
-                finder_three <- grepl(paste0(" ", new_string), trigrams_splitted$first_words, ignore.case = TRUE)
+                finder_three <- grepl(paste0("\\<", new_string, "\\>"), trigrams_splitted$first_words, ignore.case = TRUE)
                 getter_three<- trigrams_splitted$last_word[finder_three]
                 return(getter_three[1:4])
         }
         
         fourgram_finder <- function(splitted_string) {
                 new_string = paste(splitted_string[1:3], collapse = " ")
-                finder_four <- grepl(paste0(" ", new_string), fourgrams_splitted$first_words, ignore.case = TRUE)
+                finder_four <- grepl(paste0("\\<", new_string, "\\>"), fourgrams_splitted$first_words, ignore.case = TRUE)
                 getter_four<- fourgrams_splitted$last_word[finder_four]
                 return(getter_four[1:4])
         }
@@ -64,10 +64,9 @@ shinyServer(function(input, output, session) {
         unigram_finder <- function(number) {
                 random_words <- c()
                 for (i in 1:number) {
-                        word <- unigrams$unique.values[i]
-                        random_words <- c(random_words, word)
+                        words <- unigrams$unique.values[1:i]
                 }
-                return(random_words)
+                return(words)
         }
         
         
@@ -232,39 +231,31 @@ shinyServer(function(input, output, session) {
         
         
         ## Outputs
+        prediction <- reactive({prediction <-predictor(input$text)})
+                                          
+        output$prediction1 <- reactive({prediction()}[1])
+        output$prediction2 <- reactive({prediction()}[2])
+        output$prediction3 <- reactive({prediction()}[3])
+        output$prediction4 <- reactive({prediction()}[4])
         
-        
-        
-        output$prediction <- renderText(c("    ", {predictor(input$text)}[1],
-                                          "           ", {predictor(input$text)}[2], 
-                                          "           ", {predictor(input$text)}[3],
-                                          "           ", {predictor(input$text)}[4]))
-        output$time <- renderText({c("Your search took", 
-                                     {round(as.numeric(system.time(result <- predictor(input$text)))[1],3)}, 
-                                     "seconds.")})
-        
-        output$prediction1 <- renderText({predictor(input$text)}[1])
-        output$prediction2 <- renderText({predictor(input$text)}[2])
-        output$prediction3 <- renderText({predictor(input$text)}[3])
-        output$prediction4 <- renderText({predictor(input$text)}[4])
-        
-        observeEvent(input$first_word, {
-                updateTextAreaInput(session, "text", 
-                                    value = paste(input$text, predictor(input$text)[1]))
-        })
-        observeEvent(input$second_word, {
-                updateTextAreaInput(session, "text", 
-                                    value = paste(input$text, predictor(input$text)[2]))
-        })
-        observeEvent(input$third_word, {
-                updateTextAreaInput(session, "text", 
-                                    value = paste(input$text, predictor(input$text)[3]))
-        })
-        observeEvent(input$fourth_word, {
-                updateTextAreaInput(session, "text", 
-                                    value = paste(input$text, predictor(input$text)[4]))
-        })
-        
+
+        observeEvent(input$first_word, {updateTextAreaInput(session, 
+                                                            "text", 
+                                                            value = paste(input$text, 
+                                                                          {prediction()}[1]))})
+        observeEvent(input$second_word, {updateTextAreaInput(session, 
+                                                            "text", 
+                                                            value = paste(input$text, 
+                                                                          {prediction()}[2]))})
+        observeEvent(input$third_word, {updateTextAreaInput(session, 
+                                                            "text", 
+                                                            value = paste(input$text, 
+                                                                          {prediction()}[3]))})
+        observeEvent(input$fourth_word, {updateTextAreaInput(session, 
+                                                            "text", 
+                                                            value = paste(input$text, 
+                                                                          {prediction()}[4]))})
+
         
 }
 )

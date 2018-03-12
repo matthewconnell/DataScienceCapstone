@@ -14,29 +14,28 @@ shinyUI(fluidPage(
                 mainPanel(
                         
                         
-                        textInput("text", 
+                        textAreaInput("text", 
                                   label = "Enter your text here",
                                   placeholder = "Enter your text here",
-                                  width = 500),
+                                  height = 100,
+                                  width = 650),
                         
                         
                         
                         actionButton("first_word", 
                                      label = verbatimTextOutput("prediction1"), 
-                                     width = 125),
+                                     width = 160),
                         actionButton("second_word", 
                                      label = verbatimTextOutput("prediction2"), 
-                                     width = 125),
+                                     width = 160),
                         actionButton("third_word", 
                                      label =  verbatimTextOutput("prediction3"), 
-                                     width = 125),
+                                     width = 160),
                         actionButton("fourth_word", 
                                      label = verbatimTextOutput("prediction4"),
-                                     width = 125),
+                                     width = 160)
                         
-                        verbatimTextOutput("time", 
-                                           placeholder = FALSE
-                                           )
+                       
                         
                         
                         
