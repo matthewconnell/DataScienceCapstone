@@ -6,17 +6,14 @@ shinyUI(fluidPage(
         # Application title
         titlePanel("Matt's text predictor"),
         
-        # Sidebar 
-        sidebarLayout(
-                sidebarPanel(
-                ),
-                # Show a plot of the generated distribution
+       
                 mainPanel(
                         
                         
                         textAreaInput("text", 
                                   label = "Enter your text here",
                                   placeholder = "Enter your text here",
+                                  value = " ",
                                   height = 100,
                                   width = 650),
                         
@@ -43,4 +40,4 @@ shinyUI(fluidPage(
                         
                 )
         )
-))
+)

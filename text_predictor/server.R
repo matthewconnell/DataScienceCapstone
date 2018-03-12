@@ -232,29 +232,52 @@ shinyServer(function(input, output, session) {
         
         ## Outputs
         prediction <- reactive({prediction <-predictor(input$text)})
-                                          
-        output$prediction1 <- reactive({prediction()}[1])
-        output$prediction2 <- reactive({prediction()}[2])
-        output$prediction3 <- reactive({prediction()}[3])
-        output$prediction4 <- reactive({prediction()}[4])
+        prediction1 <- reactive({ if (length(prediction()[1]) == 0) {
+                "The"
+        } else { prediction()[1]}
+                })
+        prediction2 <- reactive({ if (length(prediction()[2]) == 0) {
+                "When"
+        } else if (prediction1() == prediction()[2]) {
+                "potato"
+        } else {prediction()[2]}
+        })
+        prediction3 <- reactive({ if (length(prediction()[3]) == 0) {
+                "I"
+        } else if (prediction2() == prediction()[3]) {
+                "squanchy"
+        } else {prediction()[3]}
+        })
+        prediction4 <- reactive({ if (length(prediction()[4]) == 0) {
+                "Hello"
+        } else if (prediction3() == prediction()[4]) {
+                "pickle rick"
+        } else {prediction()[4]}
+        })
+        
+        
+        output$prediction1 <- reactive(prediction1())
+        output$prediction2 <- reactive(prediction2())
+        output$prediction3 <- reactive(prediction3())
+        output$prediction4 <- reactive(prediction4())
         
 
         observeEvent(input$first_word, {updateTextAreaInput(session, 
                                                             "text", 
                                                             value = paste(input$text, 
-                                                                          {prediction()}[1]))})
+                                                                          prediction1()))})
         observeEvent(input$second_word, {updateTextAreaInput(session, 
                                                             "text", 
-                                                            value = paste(input$text, 
-                                                                          {prediction()}[2]))})
+                                                            value = paste(input$text,
+                                                                          prediction2()))})
         observeEvent(input$third_word, {updateTextAreaInput(session, 
                                                             "text", 
                                                             value = paste(input$text, 
-                                                                          {prediction()}[3]))})
+                                                                          prediction3()))})
         observeEvent(input$fourth_word, {updateTextAreaInput(session, 
                                                             "text", 
                                                             value = paste(input$text, 
-                                                                          {prediction()}[4]))})
+                                                                          prediction4()))})
 
         
 }

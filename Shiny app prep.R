@@ -215,9 +215,13 @@ predictor <- function(string) {
 
 
 predictor("alsdkfl alskdfla")
-predictor("it is")
+preditcion <- predictor("it is")
 predictor("some interesting things")
 predictor(' I ')
+
+if (prediction[1] == prediction[2]) {
+        prediction[2] <- "potato"
+}
 
 ## Find data
 ## Possibly faster???
@@ -240,7 +244,7 @@ output$prediction4 <- renderText({predictor(input$text)}[4])
 ##                              https://stackoverflow.com/questions/40623749/what-is-object-of-type-closure-is-not-subsettable-error-in-shiny/40623750
 ## Source for grep expression "\\<" and making n-gram table https://www.youtube.com/watch?v=0le0ijNVP5M
 ## Grep reference guide https://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php
-## 
+## Source for buiding a better Shiny app: https://deanattali.com/blog/building-shiny-apps-tutorial/#1-before-we-begin
 ## 
 ## 
 ## 
