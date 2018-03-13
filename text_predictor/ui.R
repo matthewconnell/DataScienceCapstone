@@ -57,9 +57,42 @@ shinyUI(fluidPage(theme = shinytheme("simplex"),
                                                 column(width = 2, align = "right", offset = 0)
                                                 )
                         ),
-                        tabPanel("Documentation", "place holding text"),
-                        tabPanel("Visualizations", "place text")
+                        tabPanel("Documentation", 
+                                 "place holding text"),
+                        
+                        
+                        
+                        
+                        
+                        tabPanel("Visualizations", 
+                                 tags$h1("Word cloud"),
+                                 sidebarLayout(
+                                         sidebarPanel(
+                                                 sliderInput("num_words",
+                                                             label = "Choose the range of unigrams for your wordcloud",
+                                                             min = 1,
+                                                             max = 200,
+                                                             value = c(1,50)),
+                                                 selectInput("color",
+                                                             label = "Choose the color scheme",
+                                                             choices = c("Set 1" = "Set1", 
+                                                                         "Set 2"= "Set2", 
+                                                                         "Set 3" = "Set3", 
+                                                                         "Pastel 1" = "Pastel1", 
+                                                                         "Pastel 2" = "Pastel2", 
+                                                                         "Paired" = "Paired", 
+                                                                         "Dark" = "Dark2", 
+                                                                         "Accent"= "Accent"),
+                                                             selected = "Set 1")
+                                         ),
+                                         mainPanel(
+                                                 plotOutput("wordcloud",
+                                                            width = 600,
+                                                            height = 600)
+                                 )
                         ))
+)
+)
 )
 )
 )

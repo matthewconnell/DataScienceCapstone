@@ -22,6 +22,11 @@ fourgrams_splitted$first_words <- as.character(fourgrams_splitted$first_words)
 fourgrams_splitted$last_word <- as.character(fourgrams_splitted$last_word)
 
 
+library(wordcloud)
+wordcloud(unigrams$unique.values[1:100], freq = unigrams$nr.appearances,
+          colors = brewer.pal(8, "Paired"),
+          max.words = 200,
+          random.order = FALSE)
 
 
 
@@ -157,14 +162,14 @@ output$prediction4 <- renderText({predictor(input$text)}[4])
 ## Another grep reference guide http://www.ericagamet.com/wp-content/uploads/2016/04/Erica-Gamets-GREP-Cheat-Sheet.pdf
 ## Source for buiding a better Shiny app: https://deanattali.com/blog/building-shiny-apps-tutorial/#1-before-we-begin
 ## Shiny themes https://gallery.shinyapps.io/117-shinythemes/
-## Siny themes again http://rstudio.github.io/shinythemes/
+## Shiny themes again http://rstudio.github.io/shinythemes/
+## Source for wordcloud help http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know
 ## 
-## 
-
-## fixing some case and spacing issues in the original data
-getwd()
-setwd(..)
 
 
 
-##
+
+
+
+
+

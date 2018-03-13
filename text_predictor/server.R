@@ -1,5 +1,6 @@
 library(shiny)
 library(data.table)
+library(wordcloud)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output, session) {
@@ -195,6 +196,14 @@ shinyServer(function(input, output, session) {
                                                             "text", 
                                                             value = paste(input$text, 
                                                                           prediction4()))})
+        
+        output$wordcloud <- renderPlot({wordcloud(unigrams$unique.values[(input$num_words[1]):(input$num_words[2])], 
+                                                   freq = unigrams$nr.appearances,
+                                                   scale = c(12, 1),
+                                                   colors = brewer.pal(8, input$color),
+                                                   max.words = 200,
+                                                   random.order = FALSE)
+        })
 
         
 }
