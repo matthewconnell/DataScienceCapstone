@@ -1,4 +1,5 @@
 library(shiny)
+library(data.table)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output, session) {
@@ -40,7 +41,6 @@ shinyServer(function(input, output, session) {
         ##
         
         unigram_finder <- function(number) {
-                random_words <- c()
                 words <- unigrams$unique.values[1:number]
                 return(words)
         }
