@@ -167,7 +167,9 @@ output$prediction4 <- renderText({predictor(input$text)}[4])
 ## Source for plot output https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html
 
 
-
+print("one
+      two
+      three")
 
 
 
