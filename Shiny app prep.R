@@ -150,13 +150,14 @@ output$prediction4 <- renderText({predictor(input$text)}[4])
 
 ## Source for updating text input fields https://shiny.rstudio.com/reference/shiny/latest/textAreaInput.html
 ## Source for dynamic buttons https://sites.temple.edu/psmgis/2017/07/26/r-shiny-task-create-an-input-select-box-that-is-dependent-on-a-previous-input-choice/
-## SOurces for reactive variables https://stackoverflow.com/questions/17002160/shiny-tutorial-error-in-r/17649022
-##                              https://stackoverflow.com/questions/40623749/what-is-object-of-type-closure-is-not-subsettable-error-in-shiny/40623750
+## Source for reactive variables https://stackoverflow.com/questions/17002160/shiny-tutorial-error-in-r/17649022
+## More reactive variables https://stackoverflow.com/questions/40623749/what-is-object-of-type-closure-is-not-subsettable-error-in-shiny/40623750
 ## Source for grep expression "\\<" and making n-gram table https://www.youtube.com/watch?v=0le0ijNVP5M
 ## Grep reference guide https://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php
+## Another grep reference guide http://www.ericagamet.com/wp-content/uploads/2016/04/Erica-Gamets-GREP-Cheat-Sheet.pdf
 ## Source for buiding a better Shiny app: https://deanattali.com/blog/building-shiny-apps-tutorial/#1-before-we-begin
-## 
-## 
+## Shiny themes https://gallery.shinyapps.io/117-shinythemes/
+## Siny themes again http://rstudio.github.io/shinythemes/
 ## 
 ## 
 

@@ -7,7 +7,7 @@ shinyServer(function(input, output, session) {
         
         
         
-        library(data.table)
+       
         
         ## Load and 'characterize' the tables
         unigrams <- as.data.table(read.table("unigrams.txt"))
@@ -99,12 +99,16 @@ shinyServer(function(input, output, session) {
                 
         }
         
-        
+        strip_text <- function(string) {
+                string2 <- gsub("(\\[|\\]|\\(|\\)|\\{|\\}|\\+|\\*)+", "", string)
+                return(string2)
+        }
         
         
         
         predictor <- function(string) {
-                splitted_string <- unlist(strsplit(string, split = " "))
+                string2 <- strip_text(string)
+                splitted_string <- unlist(strsplit(string2, split = " "))
                 len_string = length(splitted_string)  
                 if (len_string >= 3) {
                         splitted_string <- splitted_string[(len_string - 2):len_string]
@@ -128,27 +132,44 @@ shinyServer(function(input, output, session) {
         
         ## Outputs
         prediction <- reactive({prediction <-predictor(input$text)})
+        
+        
         prediction1 <- reactive({ if (length(prediction()[1]) == 0) {
                 "The"
         } else { prediction()[1]}
                 })
+        
+        
         prediction2 <- reactive({ if (length(prediction()[2]) == 0) {
                 "When"
-        } else if (prediction1() == prediction()[2]) {
-                "potato"
-        } else {prediction()[2]}
+                } else if (prediction1() == prediction()[2]) {
+                        "potato"
+                } else {
+                        prediction()[2]
+                }
         })
+        
+        
         prediction3 <- reactive({ if (length(prediction()[3]) == 0) {
                 "I"
-        } else if (prediction2() == prediction()[3]) {
-                "squanchy"
-        } else {prediction()[3]}
+                } else if (prediction1() == prediction()[3]) {
+                        "squanchy"
+                } else if (prediction2() == prediction()[3]) {
+                        "summer"
+                } else {
+                        prediction()[3]}
         })
+        
         prediction4 <- reactive({ if (length(prediction()[4]) == 0) {
                 "Hello"
-        } else if (prediction3() == prediction()[4]) {
-                "pickle rick"
-        } else {prediction()[4]}
+                } else if (prediction1() == prediction()[4]) {
+                        "pickle rick"
+                } else if (prediction2() == prediction()[4]) {
+                        "Mortimer"
+                } else if (prediction3() == prediction()[4]) {
+                        "Birdperson"
+                } else {
+                        prediction()[4]}
         })
         
         
