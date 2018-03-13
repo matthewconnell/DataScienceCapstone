@@ -164,7 +164,7 @@ output$prediction4 <- renderText({predictor(input$text)}[4])
 ## Shiny themes https://gallery.shinyapps.io/117-shinythemes/
 ## Shiny themes again http://rstudio.github.io/shinythemes/
 ## Source for wordcloud help http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know
-## 
+## Source for plot output https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html
 
 
 
