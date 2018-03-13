@@ -161,7 +161,9 @@ output$prediction4 <- renderText({predictor(input$text)}[4])
 ## 
 ## 
 
-
+## fixing some case and spacing issues in the original data
+getwd()
+setwd(..)
 
 
 
