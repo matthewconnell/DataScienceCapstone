@@ -1,7 +1,6 @@
 library(shiny)
 library(shinythemes)
-* {
-        font-family: Arial, sans-serif !important;
+        
 
 
 # Define UI for application that draws a histogram
@@ -29,19 +28,19 @@ shinyUI(fluidPage(
                                         
                                         actionButton(
                                                      "first_word", 
-                                                     label = verbatimTextOutput("prediction1"), 
+                                                     label = textOutput("prediction1"), 
                                                      width = 160,
                                                      class = "btn-info"),
                                         actionButton("second_word", 
-                                                     label = verbatimTextOutput("prediction2"), 
+                                                     label = textOutput("prediction2"), 
                                                      width = 160,
                                                      class = "btn-info"),
                                         actionButton("third_word", 
-                                                     label = verbatimTextOutput("prediction3"), 
+                                                     label = textOutput("prediction3"), 
                                                      width = 160,
                                                      class = "btn-info"),
                                         actionButton("fourth_word", 
-                                                     label = verbatimTextOutput("prediction4"),
+                                                     label = textOutput("prediction4"),
                                                      width = 160,
                                                      class = "btn-info")
                         ),
@@ -50,4 +49,4 @@ shinyUI(fluidPage(
                         )
                 )
 )
-)}
+)

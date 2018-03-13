@@ -173,10 +173,10 @@ shinyServer(function(input, output, session) {
         })
         
         
-        output$prediction1 <- reactive(prediction1())
-        output$prediction2 <- reactive(prediction2())
-        output$prediction3 <- reactive(prediction3())
-        output$prediction4 <- reactive(prediction4())
+        output$prediction1 <- renderText(prediction1())
+        output$prediction2 <- renderText(prediction2())
+        output$prediction3 <- renderText(prediction3())
+        output$prediction4 <- renderText(prediction4())
         
 
         observeEvent(input$first_word, {updateTextAreaInput(session, 
