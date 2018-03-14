@@ -197,12 +197,26 @@ shinyServer(function(input, output, session) {
                                                             value = paste(input$text, 
                                                                           prediction4()))})
         
-        output$wordcloud <- renderPlot({wordcloud(unigrams$unique.values[(input$num_words[1]):(input$num_words[2])], 
-                                                   freq = unigrams$nr.appearances,
-                                                   scale = c(12, 1),
-                                                   colors = brewer.pal(8, input$color),
-                                                   max.words = 200,
-                                                   random.order = FALSE)
+        
+        wordcloud_values1 <- eventReactive(input$go, {
+                input$num_words[1]
+        })
+        wordcloud_values2 <- eventReactive(input$go, {
+                input$num_words[2]
+        })
+        wordcloud_color <- eventReactive(input$go, {
+                input$color
+        })
+        
+        
+        
+        
+        output$wordcloud <- renderPlot({wordcloud(unigrams$unique.values[wordcloud_values1():wordcloud_values2()],
+                                         freq = unigrams$nr.appearances,
+                                         scale = c(12, 1),
+                                         colors = brewer.pal(8, wordcloud_color()),
+                                         max.words = 200,
+                                         random.order = FALSE)
         })
         
         output$doc_text <- renderText(input$documentation)

@@ -72,7 +72,7 @@ shinyUI(fluidPage(theme = shinytheme("simplex"),
                                                                          If there are dupicates in the returned word list, a placeholder word is used.",
                                                                          
                                                                          "Some choices being made when developing the algorithm and the app were difficult. 
-                                                                         I decided to leave in swear words as they are legitimate words the people commly use and I did not believe any children would be using this app.
+                                                                         I decided to leave in swear words as they are legitimate words people commonly use and I did not believe any children would be using this app.
                                                                          If I were porting the application onto a smartphone app or for the general public, I would remove the bad words.",
                                                                          
                                                                          
@@ -147,10 +147,11 @@ shinyUI(fluidPage(theme = shinytheme("simplex"),
                                  tags$h1("Word cloud"),
                                  sidebarLayout(
                                          sidebarPanel(
+                                                 
                                                  sliderInput("num_words",
-                                                             label = "Choose the range of unigrams for your wordcloud",
+                                                             label = "Choose the range of unigrams for your wordcloud and click submit",
                                                              min = 1,
-                                                             max = 200,
+                                                             max = 500,
                                                              value = c(1,50)),
                                                  selectInput("color",
                                                              label = "Choose the color scheme",
@@ -164,8 +165,9 @@ shinyUI(fluidPage(theme = shinytheme("simplex"),
                                                                          "Accent"= "Accent"),
                                                              selected = "Set 1",
                                                              selectize = TRUE
-                                                             
-                                                             )
+                                                             ),
+                                                 actionButton(inputId = "go", label = "Submit", icon("refresh"))
+                                                 
                                          ),
                                          mainPanel(
                                                  plotOutput("wordcloud",

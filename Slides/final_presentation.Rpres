@@ -1,31 +1,59 @@
-final_presentation
+Text Prediction App
 ========================================================
 author: Matthew Connell
-date: 3/14/2018
+date: March 14th, 2018
 autosize: true
 
-First Slide
+About the App
 ========================================================
 
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+ - This app uses an algorithm based on the Katz's Backoff Model of word prediction. 
+It takes the most recent words and finds the four most likely next words.
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+ - When it cannot find any good words at all, it returns one of the top four most common words.
 
-Slide With Code
+ - I left in swear words as they are legitimate words the people commonly use and I did not believe any children would be using this app.
+
+ - "Stopwords" ('a', 'the', 'and', etc.) were included as I found they made for more realistic predictions.
+
+ - Punctuation was also removed (except for apostrophes) 
+
+
+Limitations and Next Steps
 ========================================================
 
-```{r}
-summary(cars)
-```
 
-Slide With Plot
+ - The application has been built for speed. 
+In the case of some n-gram searches, this will result some accuracy loss. 
+This is due to the file size limitations.
+
+ - Only 20% of the data was sampled and of that, the least common n-gram combinations were dropped from the table.
+Furthermore, the build is currently only available for the English language.
+
+ - The next steps would be to add another language. 
+Russian or German would be the best choices as the data has already been made available as part of this project.
+
+ - I would also like to try adding 5-gram and 6-gram tables to the app to see how much that improves accuracy.
+
+
+Sources
 ========================================================
 
-```{r, echo=FALSE}
-plot(cars)
-```
+
+ - Grep expressions and making n-gram table: <a href> https://www.youtube.com/watch?v=0le0ijNVP5M</a>
+ - Grep reference guide: <a href>https://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php</a>
+ - Buiding a better Shiny app: <a href>https://deanattali.com/blog/building-shiny-apps-tutorial/#1-before-we-begin</a>
+ - Wordcloud: <a href>http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know</a>
+ - Plot output: <a href>https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html</a>
+ - Shiny inputSelector: <a href>http://shiny.rstudio.com/gallery/selectize-vs-select.html</a>
+ - Updating text input fields: <a href>https://shiny.rstudio.com/reference/shiny/latest/textAreaInput.html</a>
+ - Dynamic buttons: <a href>https://sites.temple.edu/psmgis/2017/07/26/r-shiny-task-create-an-input-select-box-that-is-dependent-on-a-previous-input-choice/</a>",
+ - Reactive variables: <a href>https://stackoverflow.com/questions/17002160/shiny-tutorial-error-in-r/17649022</a>
+ - More sources can be found on the app's site
+ 
+
+
+
 
 Animated List
 ========================================================

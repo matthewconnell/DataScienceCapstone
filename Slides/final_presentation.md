@@ -1,40 +1,59 @@
-final_presentation
+Text Prediction App
 ========================================================
 author: Matthew Connell
-date: 3/14/2018
+date: March 14th, 2018
 autosize: true
 
-First Slide
+About the App
 ========================================================
 
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+ - This app uses an algorithm based on the Katz's Backoff Model of word prediction. 
+It takes the most recent words and finds the four most likely next words.
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+ - When it cannot find any good words at all, it returns one of the top four most common words.
 
-Slide With Code
+ - I left in swear words as they are legitimate words the people commonly use and I did not believe any children would be using this app.
+
+ - "Stopwords" ('a', 'the', 'and', etc.) were included as I found they made for more realistic predictions.
+
+ - Punctuation was also removed (except for apostrophes) 
+
+
+Limitations and Next Steps
 ========================================================
 
 
-```r
-summary(cars)
-```
+ - The application has been built for speed. 
+In the case of some n-gram searches, this will result some accuracy loss. 
+This is due to the file size limitations.
 
-```
-     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
-```
+ - Only 20% of the data was sampled and of that, the least common n-gram combinations were dropped from the table.
+Furthermore, the build is currently only available for the English language.
 
-Slide With Plot
+ - The next steps would be to add another language. 
+Russian or German would be the best choices as the data has already been made available as part of this project.
+
+ - I would also like to try adding 5-gram and 6-gram tables to the app to see how much that improves accuracy.
+
+
+Sources
 ========================================================
 
-![plot of chunk unnamed-chunk-2](final_presentation-figure/unnamed-chunk-2-1.png)
+
+ - Grep expressions and making n-gram table: <a href> https://www.youtube.com/watch?v=0le0ijNVP5M</a>
+ - Grep reference guide: <a href>https://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php</a>
+ - Buiding a better Shiny app: <a href>https://deanattali.com/blog/building-shiny-apps-tutorial/#1-before-we-begin</a>
+ - Wordcloud: <a href>http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know</a>
+ - Plot output: <a href>https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html</a>
+ - Shiny inputSelector: <a href>http://shiny.rstudio.com/gallery/selectize-vs-select.html</a>
+ - Updating text input fields: <a href>https://shiny.rstudio.com/reference/shiny/latest/textAreaInput.html</a>
+ - Dynamic buttons: <a href>https://sites.temple.edu/psmgis/2017/07/26/r-shiny-task-create-an-input-select-box-that-is-dependent-on-a-previous-input-choice/</a>",
+ - Reactive variables: <a href>https://stackoverflow.com/questions/17002160/shiny-tutorial-error-in-r/17649022</a>
+ - More sources can be found on the app's site
+ 
+
+
+
 
 Animated List
 ========================================================
@@ -48,14 +67,14 @@ Animated List
 
 
 <!-- MotionChart generated in R 3.4.0 by googleVis 0.6.2 package -->
-<!-- Wed Mar 14 16:13:30 2018 -->
+<!-- Wed Mar 14 18:22:46 2018 -->
 
 
 <!-- jsHeader -->
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMotionChartID1370545e5de9 () {
+function gvisDataMotionChartID3ce02f8740f2 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -153,15 +172,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMotionChartID1370545e5de9() {
-var data = gvisDataMotionChartID1370545e5de9();
+function drawChartMotionChartID3ce02f8740f2() {
+var data = gvisDataMotionChartID3ce02f8740f2();
 var options = {};
 options["width"] = 600;
 options["height"] = 500;
 options["state"] = "";
 
     var chart = new google.visualization.MotionChart(
-    document.getElementById('MotionChartID1370545e5de9')
+    document.getElementById('MotionChartID3ce02f8740f2')
     );
     chart.draw(data,options);
     
@@ -185,9 +204,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMotionChartID1370545e5de9);
+callbacks.push(drawChartMotionChartID3ce02f8740f2);
 })();
-function displayChartMotionChartID1370545e5de9() {
+function displayChartMotionChartID3ce02f8740f2() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -211,10 +230,10 @@ callbacks.shift()();
 </script>
  
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID1370545e5de9"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID3ce02f8740f2"></script>
  
 <!-- divChart -->
   
-<div id="MotionChartID1370545e5de9" 
+<div id="MotionChartID3ce02f8740f2" 
   style="width: 600; height: 500;">
 </div>
