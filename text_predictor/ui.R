@@ -76,7 +76,7 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                                                                          If it cannot find a suitable word, it will look at the previous two words and try to predict based on them.
                                                                          Similarly, if it cannot find a word based on those two, it will look at the individual most recent word typed.
                                                                          When it cannot find any good words at all, it returns one of the top four most common words.
-                                                                         If there are dupicates in the returned word list, a placeholder word is used.",
+                                                                         If there are duplicates in the returned word list, a placeholder word is used.",
                                                                          
                                                                          "Some choices being made when developing the algorithm and the app were difficult. 
                                                                          I decided to leave in swear words as they are legitimate words people commonly use and I did not believe any children would be using this app.

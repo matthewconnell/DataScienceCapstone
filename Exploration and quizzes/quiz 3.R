@@ -141,16 +141,7 @@ length(grep("during the bad", five_grams_test))
 
 
 ##################################
-1 case of beer
-2 would mean the world
-3 make me the happiest
-4 defense
-5 beach
-6 be on my way
-7 quite some time
-8 fingers 
-9 bad
-10 you must be insane
+
 
 
 ##### This is not a good way of getting the answers
