@@ -4,17 +4,18 @@ author: Matthew Connell
 date: March 14th, 2018
 autosize: true
 
-About the App
+About the Algorithm
 ========================================================
 
  - This app uses an algorithm based on the Katz's Backoff Model of word prediction. 
 It takes the most recent words and finds the four most likely next words.
 
+ - It was constructed using data from twitter, blogs, and news sites. This textual data was put together in a corpus, tokenized into 1-, 2-, 3-, and 4-word groups.
+ These groups were aggregated by their frequency.
+
+ - When you type a phrase, the app searches through the table of text for that phrase and returns what it thinks will be the next word. 
+
  - When it cannot find any words, it returns one of the top four most common words.
-
- - "Stopwords" ('a', 'the', 'and', etc.) were included as I found they made for more realistic predictions.
-
- - Punctuation was also removed (except for apostrophes) 
 
 
 Limitations and Next Steps

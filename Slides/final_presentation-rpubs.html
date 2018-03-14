@@ -757,14 +757,15 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>About the App</h3>
+<h3>About the Algorithm</h3>
 <div class="slideContent" >
 <ul>
 <li><p>This app uses an algorithm based on the Katz&#39;s Backoff Model of word prediction. 
 It takes the most recent words and finds the four most likely next words.</p></li>
+<li><p>It was constructed using data from twitter, blogs, and news sites. This textual data was put together in a corpus, tokenized into 1-, 2-, 3-, and 4-word groups.
+These groups were aggregated by their frequency.</p></li>
+<li><p>When you type a phrase, the app searches through the table of text for that phrase and returns what it thinks will be the next word. </p></li>
 <li><p>When it cannot find any words, it returns one of the top four most common words.</p></li>
-<li><p>&ldquo;Stopwords&rdquo; (&#39;a&#39;, &#39;the&#39;, &#39;and&#39;, etc.) were included as I found they made for more realistic predictions.</p></li>
-<li><p>Punctuation was also removed (except for apostrophes) </p></li>
 </ul>
 
 </div>
