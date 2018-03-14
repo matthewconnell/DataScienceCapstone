@@ -10,9 +10,7 @@ About the App
  - This app uses an algorithm based on the Katz's Backoff Model of word prediction. 
 It takes the most recent words and finds the four most likely next words.
 
- - When it cannot find any good words at all, it returns one of the top four most common words.
-
- - I left in swear words as they are legitimate words the people commonly use and I did not believe any children would be using this app.
+ - When it cannot find any words, it returns one of the top four most common words.
 
  - "Stopwords" ('a', 'the', 'and', etc.) were included as I found they made for more realistic predictions.
 
@@ -23,14 +21,13 @@ Limitations and Next Steps
 ========================================================
 
 
- - The application has been built for speed. 
-In the case of some n-gram searches, this will result some accuracy loss. 
-This is due to the file size limitations.
+ - To make the app more responsive, file size had to be reduced. 
+ This will result in some accuracy loss.
 
- - Only 20% of the data was sampled and of that, the least common n-gram combinations were dropped from the table.
-Furthermore, the build is currently only available for the English language.
+ - Only 20% of the data was sampled and of that, the least common n-gram combinations were dropped from the tables.
+Furthermore, the build is currently only available in English.
 
- - The next steps would be to add another language. 
+ - One next step would be to add another language. 
 Russian or German would be the best choices as the data has already been made available as part of this project.
 
  - I would also like to try adding 5-gram and 6-gram tables to the app to see how much that improves accuracy.
@@ -39,9 +36,9 @@ Russian or German would be the best choices as the data has already been made av
 Using the App
 ========================================================
 
- - The app is available at <href>mconnell.shinyapps.io/text_predictor</a>
+ - The app is available at <a href>http://mconnell.shinyapps.io/text_predictor</a>
 
- - The code can be found at <href>github.com/matc84/DataScienceCapstone</a>
+ - The code can be found at <a href>http://github.com/matc84/DataScienceCapstone</a>
  
  - Here is a screenshot: 
  

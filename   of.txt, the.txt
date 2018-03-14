@@ -1,2 +1,0 @@
-"first_words" "last_word"
-"1" "  of" "the"

@@ -157,7 +157,7 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                                          sidebarPanel(
                                                  
                                                  sliderInput("num_words",
-                                                             label = "Choose the range of unigrams for your wordcloud and click submit",
+                                                             label = "Make a wordcloud of the 500 most common words",
                                                              min = 1,
                                                              max = 500,
                                                              value = c(1,50)),
