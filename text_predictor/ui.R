@@ -4,12 +4,14 @@ library(shinythemes)
 
 
 # Define UI for application that draws a histogram
-shinyUI(fluidPage(theme = shinytheme("simplex"),
+shinyUI(fluidPage(theme = shinytheme("slate"),
                   fluidRow(
-                          column(8, align = "center", offset = 0,
+                          column(8, align = "left", offset = 0,
         
         
-                titlePanel("Matt's text predictor")
+                titlePanel("Matt's Text Predictor",
+                           windowTitle = "Matt's Text Predictor"
+                           )
                           ),
                 
                          

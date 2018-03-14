@@ -34,6 +34,16 @@ Furthermore, the build is currently only available for the English language.
 Russian or German would be the best choices as the data has already been made available as part of this project.
 
  - I would also like to try adding 5-gram and 6-gram tables to the app to see how much that improves accuracy.
+ 
+ 
+Using the App
+========================================================
+
+ - The app is available at <href>mconnell.shinyapps.io/text_predictor</a>
+
+ - The code can be found at <href>github.com/matc84/DataScienceCapstone</a>
+ 
+ - 
 
 
 Sources
@@ -53,21 +63,3 @@ Sources
  
 
 
-
-
-Animated List
-========================================================
-
-> 1. Point 1
-> 2. Point 2
-> 3. Point 3
-
- Motion Chart
-========================================================
-
-
-```{r echo = FALSE, results = 'asis', message = FALSE}
-require(googleVis)
-M1 = gvisMotionChart(Fruits, idvar = 'Fruit', timevar = "Year")
-print(M1, tag = "chart")
-```
