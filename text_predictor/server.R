@@ -144,7 +144,7 @@ shinyServer(function(input, output, session) {
         prediction2 <- reactive({ if (length(prediction()[2]) == 0) {
                 "When"
                 } else if (prediction1() == prediction()[2]) {
-                        "potato"
+                        "me"
                 } else {
                         prediction()[2]
                 }
@@ -154,9 +154,9 @@ shinyServer(function(input, output, session) {
         prediction3 <- reactive({ if (length(prediction()[3]) == 0) {
                 "I"
                 } else if (prediction1() == prediction()[3]) {
-                        "squanchy"
+                        "you"
                 } else if (prediction2() == prediction()[3]) {
-                        "summer"
+                        "her"
                 } else {
                         prediction()[3]}
         })
@@ -164,11 +164,11 @@ shinyServer(function(input, output, session) {
         prediction4 <- reactive({ if (length(prediction()[4]) == 0) {
                 "Hello"
                 } else if (prediction1() == prediction()[4]) {
-                        "pickle rick"
+                        "because"
                 } else if (prediction2() == prediction()[4]) {
-                        "Mortimer"
+                        "just"
                 } else if (prediction3() == prediction()[4]) {
-                        "Birdperson"
+                        "if"
                 } else {
                         prediction()[4]}
         })
@@ -215,7 +215,7 @@ shinyServer(function(input, output, session) {
                                          freq = unigrams$nr.appearances,
                                          scale = c(12, 1),
                                          colors = brewer.pal(8, wordcloud_color()),
-                                         max.words = 200,
+                                         max.words = 150,
                                          random.order = FALSE)
         })
         

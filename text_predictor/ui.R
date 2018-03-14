@@ -29,31 +29,33 @@ shinyUI(fluidPage(theme = shinytheme("simplex"),
                                                                   height = 100,
                                                                   width = 700)
                                                         ),
-                                                 column(width = 2, align = "right", offset = 0)
+                                                 column(width = 4, align = "left", offset = 2)
                                                   ),
                                          
                                          fluidRow(
-                                                column(width = 2, align = "right", offset = 0),
-                                                column(width = 8, align = "center", offset = 2,
-
-                                                        actionButton(
+                                                column(width = 4, align = "right", offset = 0),
+                                                column(width = 2,
+                                                       actionLink(
                                                                      "first_word", 
-                                                                     label = textOutput("prediction1"), 
-                                                                     width = 160,
-                                                                     class = "btn-info"),
-                                                        actionButton("second_word", 
-                                                                     label = textOutput("prediction2"), 
-                                                                     width = 160,
-                                                                     class = "btn-info"),
-                                                        actionButton("third_word", 
-                                                                     label = textOutput("prediction3"), 
-                                                                     width = 160,
-                                                                     class = "btn-info"),
-                                                        actionButton("fourth_word", 
+                                                                     label = textOutput("prediction1")
+                                                                     )
+                                                       ),                                   
+                                                column(width = 2,
+                                                       actionLink("second_word", 
+                                                                     label = textOutput("prediction2")
+                                                                     
+                                                                     )),
+                                                column(width = 2, 
+                                                       actionLink("third_word", 
+                                                                     label = textOutput("prediction3"),
+                                                                     width = 2
+                                                                     )),
+                                                column(width = 2, 
+                                                       actionLink("fourth_word", 
                                                                      label = textOutput("prediction4"),
-                                                                     width = 160,
-                                                                     class = "btn-info")
-                                                       ),
+                                                                     width = 2
+                                                                     )),
+                                                       
                                                 column(width = 2, align = "right", offset = 0)
                                                 )
                         ),
@@ -154,7 +156,7 @@ shinyUI(fluidPage(theme = shinytheme("simplex"),
                                                              max = 500,
                                                              value = c(1,50)),
                                                  selectInput("color",
-                                                             label = "Choose the color scheme",
+                                                             label = "Choose the 'brewer.pal' color scheme",
                                                              choices = c("Set 1" = "Set1", 
                                                                          "Set 2"= "Set2", 
                                                                          "Set 3" = "Set3", 
@@ -166,7 +168,7 @@ shinyUI(fluidPage(theme = shinytheme("simplex"),
                                                              selected = "Set 1",
                                                              selectize = TRUE
                                                              ),
-                                                 actionButton(inputId = "go", label = "Submit", icon("refresh"))
+                                                 actionButton(inputId = "go", label = " Submit", icon("refresh"), class ="btn-info")
                                                  
                                          ),
                                          mainPanel(
