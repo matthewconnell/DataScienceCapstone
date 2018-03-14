@@ -43,7 +43,9 @@ Using the App
 
  - The code can be found at <href>github.com/matc84/DataScienceCapstone</a>
  
- - 
+ - Here is a screenshot: 
+ 
+ ![screenshot](text_app_shot.png)
 
 
 Sources
@@ -55,10 +57,6 @@ Sources
  - Buiding a better Shiny app: <a href>https://deanattali.com/blog/building-shiny-apps-tutorial/#1-before-we-begin</a>
  - Wordcloud: <a href>http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know</a>
  - Plot output: <a href>https://shiny.rstudio.com/reference/shiny/latest/plotOutput.html</a>
- - Shiny inputSelector: <a href>http://shiny.rstudio.com/gallery/selectize-vs-select.html</a>
- - Updating text input fields: <a href>https://shiny.rstudio.com/reference/shiny/latest/textAreaInput.html</a>
- - Dynamic buttons: <a href>https://sites.temple.edu/psmgis/2017/07/26/r-shiny-task-create-an-input-select-box-that-is-dependent-on-a-previous-input-choice/</a>",
- - Reactive variables: <a href>https://stackoverflow.com/questions/17002160/shiny-tutorial-error-in-r/17649022</a>
  - More sources can be found on the app's site
  
 

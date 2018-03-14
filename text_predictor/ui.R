@@ -113,7 +113,8 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                                                                         
                                                                         
                                                                         "Sources" = paste("<h3>Sources</h3>",
-                                                                                          "<h5>Grep expression '\\<', making n-gram table: <a href> https://www.youtube.com/watch?v=0le0ijNVP5M</a>",
+                                                                                          "<h5>Grep expressions and making n-gram table: <a href> https://www.youtube.com/watch?v=0le0ijNVP5M</a>",
+                                                                                          "Dan Jurafsky's NLP course on YouTube: <a href>https://www.youtube.com/watch?v=dkUtavsPqNA&t=1s</a>",
                                                                                           "Grep reference guide: <a href>https://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php</a>",
                                                                                           "Another grep reference guide: <a href>http://www.ericagamet.com/wp-content/uploads/2016/04/Erica-Gamets-GREP-Cheat-Sheet.pdf</a>",
                                                                                           "Buiding a better Shiny app: <a href>https://deanattali.com/blog/building-shiny-apps-tutorial/#1-before-we-begin</a>",
