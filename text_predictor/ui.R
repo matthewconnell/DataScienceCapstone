@@ -20,8 +20,12 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                         tabsetPanel(
                                 tabPanel("The App",
                                          fluidRow(
-                                                 column(width = 2, align = "left", offset = 0),
-                                                 column(width = 8, align = "center", offset = 0,
+                                                 column(width = 3, align = "left", offset = 0),
+                                                 column(width = 7, align = "center", offset = 0,
+                                                        
+                                                        br(),
+                                                        br(),
+                                                        br(),
                                          
                         
                                                         textAreaInput("text", 
@@ -31,11 +35,12 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                                                                   height = 100,
                                                                   width = 700)
                                                         ),
-                                                 column(width = 4, align = "left", offset = 2)
+                                                 column(width = 1, align = "left", offset = 2)
                                                   ),
                                          
+                                         
                                          fluidRow(
-                                                column(width = 4, align = "right", offset = 0),
+                                                column(width = 5, align = "right", offset = 0),
                                                 column(width = 2,
                                                        actionLink(
                                                                      "first_word", 
@@ -52,13 +57,11 @@ shinyUI(fluidPage(theme = shinytheme("slate"),
                                                                      label = textOutput("prediction3"),
                                                                      width = 2
                                                                      )),
-                                                column(width = 2, 
+                                                column(width = 1, 
                                                        actionLink("fourth_word", 
                                                                      label = textOutput("prediction4"),
                                                                      width = 2
-                                                                     )),
-                                                       
-                                                column(width = 2, align = "right", offset = 0)
+                                                                     ))
                                                 )
                         ),
                         tabPanel("Documentation",
