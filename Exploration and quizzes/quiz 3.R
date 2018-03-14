@@ -144,16 +144,6 @@ length(grep("during the bad", five_grams_test))
 
 
 
-##### This is not a good way of getting the answers
-##### Overtraining and it doesn't work for question 9
-probability of:
-  eyes <- 11567/85411
-  ears <-  66931/85411
-  fingers<- 3014/85411
-  
-  the_crowd <- 1576
-  the_defense <- 569
-  the_players <- 858
   
 grepped_terms <- c(the_crowd, the_defense, the_players)
 
