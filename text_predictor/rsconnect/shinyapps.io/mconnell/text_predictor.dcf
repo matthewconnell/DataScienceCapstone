@@ -5,8 +5,8 @@ account: mconnell
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 295820
-bundleId: 1268237
+bundleId: 1270422
 url: https://mconnell.shinyapps.io/text_predictor/
-when: 1521034830.81292
+when: 1521130125.40167
 asMultiple: FALSE
 asStatic: FALSE
