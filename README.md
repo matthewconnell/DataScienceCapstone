@@ -1,5 +1,7 @@
 # Text Prediction App
 
+Link to app: http://mconnell.shinyapps.io/text_predictor
+
 This repo contains code for a shiny app that predicts text input. This is the final project for Coursera's Data Science Specialization. The app uses an algorithm based on Katz's Stupid-Backoff Model of word prediction. It works by taking the most recent three words and finding the most likely next four words. If it cannot find a suitable word, it will look at the previous two words and try to predict based on them. Similarly, if it cannot find a word based on those two, it will look at the individual most recent word typed. When it cannot find any good words at all, it returns one of the top four most common words. If there are duplicates in the returned word list, a placeholder word is used.
 
 Some choices being made when developing the algorithm and the app were difficult. I decided to leave in swear words as they are legitimate words people commonly use and I did not believe any children would be using this app. If I were porting the application onto a smartphone app or for the general public, I would remove the curse words.
